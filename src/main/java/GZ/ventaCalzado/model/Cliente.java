@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "clientes")
@@ -12,6 +14,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
+    @Column(name = "idCliente")
     private Integer idCliente;
 
     @Column(name ="nombres", nullable = false, length = 40)
@@ -33,5 +36,9 @@ public class Cliente {
     @Column(name ="email", nullable = false, length = 40)
     @Getter @Setter
     private String email;
+
+    @OneToMany(mappedBy = "clientes",cascade = CascadeType.ALL)
+    private Set<Cliente>clientes=new HashSet<>();
+
 
 }

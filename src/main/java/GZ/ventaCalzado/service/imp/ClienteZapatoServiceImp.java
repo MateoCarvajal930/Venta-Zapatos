@@ -26,19 +26,20 @@ public class ClienteZapatoServiceImp implements IClienteZapatoService {
     }
 
     @Override
-    public void delete(Integer idVenta) {
+    public void borrarVenta(Integer idVenta) {
         clienteZapatoRepo.deleteById(idVenta);
 
     }
 
     @Override
-    public ClienteZapato findByid(Integer idVenta) {
+    public ClienteZapato BuscarVentaPorId(Integer idVenta) {
         Optional<ClienteZapato>clienteZapatoOptional = clienteZapatoRepo.findById(idVenta);
         return clienteZapatoOptional.orElse(null);
     }
 
+
     @Override
-    public List<ClienteZapato> findAll() {
+    public List<ClienteZapato> listarVentas() {
         return clienteZapatoRepo.findAll();
     }
 }

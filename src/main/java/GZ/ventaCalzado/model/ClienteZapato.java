@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class ClienteZapato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter
     @Column(name = "id_venta")
     private Integer idVenta;
 
@@ -18,12 +19,16 @@ public class ClienteZapato {
     private String fecha;
 
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} )
-    @JoinColumn(name = "id_zapato")
-    private Zapato zapato;
+    @JoinColumn(nullable = false,name = "idCliente",referencedColumnName = "idCliente")
+    @Getter @Setter
+    private Cliente cliente;
 
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} )
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
+    @JoinColumn(nullable = false,name = "id_zapato",referencedColumnName = "id_zapato")
+    @Getter @Setter
+    private Zapato zapato;
+
+
 
 
 

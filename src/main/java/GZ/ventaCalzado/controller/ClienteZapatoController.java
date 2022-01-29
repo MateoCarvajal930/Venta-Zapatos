@@ -16,7 +16,7 @@ public class ClienteZapatoController {
 
         @GetMapping
         public List<ClienteZapato> listarVentas(){
-            return clienteZapatoServiceImp.findAll();
+            return clienteZapatoServiceImp.listarVentas();
         }
 
         @PostMapping
@@ -31,12 +31,12 @@ public class ClienteZapatoController {
 
         @GetMapping("/{id}")
         public ClienteZapato buscarVentaPorId(@PathVariable ("id") Integer idVenta) {
-            return clienteZapatoServiceImp.findByid(idVenta);
+            return clienteZapatoServiceImp.BuscarVentaPorId(idVenta);
         }
 
         @DeleteMapping("/{id}")
         public void delete(@PathVariable ("id") Integer idVenta) {
-            clienteZapatoServiceImp.delete(idVenta);
+            clienteZapatoServiceImp.borrarVenta(idVenta);
         }
 
     }

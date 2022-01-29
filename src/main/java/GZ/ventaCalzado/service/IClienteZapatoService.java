@@ -7,7 +7,7 @@ import java.util.List;
 public interface IClienteZapatoService{
     ClienteZapato vender(ClienteZapato clienteZapato);
     ClienteZapato actualizarVenta(ClienteZapato clienteZapato);
-    void delete(Integer idVenta);
-    ClienteZapato findByid(Integer idVenta);
-    List<ClienteZapato> findAll();
+    void borrarVenta(Integer idVenta);
+    ClienteZapato BuscarVentaPorId(Integer idVenta);
+    List<ClienteZapato> listarVentas();
 }
