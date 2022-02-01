@@ -14,18 +14,23 @@ public class Zapato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter
-    @Column(name = "id_zapato")
-    private Integer idZapato;
+    @Column(name = "idZapato")
+    Integer idZapato;
 
     @Column(name = "modelo",nullable = false,length = 50)
     @Getter @Setter
     private String modelo;
+
     @Column(name = "color",nullable = false,length = 50)
     @Getter @Setter
     private String color;
 
-    @OneToMany(mappedBy = "zapatos",cascade = CascadeType.ALL)
-        private Set<Zapato> zapatos=new HashSet<>();
+    @Column(name = "cantidad",nullable = false,length = 50)
+    @Getter @Setter
+    private String cantidad;
+
+    @OneToMany(mappedBy = "zapato", cascade=CascadeType.ALL, orphanRemoval = true)
+    private Set<Venta> venta = new HashSet<Venta>();
 
 
 }

@@ -1,13 +1,13 @@
 package GZ.ventaCalzado.service;
 
-import GZ.ventaCalzado.model.ClienteZapato;
+import GZ.ventaCalzado.model.Venta;
 
 import java.util.List;
 
 public interface IClienteZapatoService{
-    ClienteZapato vender(ClienteZapato clienteZapato);
-    ClienteZapato actualizarVenta(ClienteZapato clienteZapato);
+    Venta vender(Venta clienteZapato);
+    Venta actualizarVenta(Venta clienteZapato);
     void borrarVenta(Integer idVenta);
-    ClienteZapato BuscarVentaPorId(Integer idVenta);
-    List<ClienteZapato> listarVentas();
+    Venta BuscarVentaPorId(Integer idVenta);
+    List<Venta> listarVentas();
 }

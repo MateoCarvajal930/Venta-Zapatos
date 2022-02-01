@@ -1,10 +1,11 @@
 package GZ.ventaCalzado.service.imp;
 
-import GZ.ventaCalzado.model.ClienteZapato;
+import GZ.ventaCalzado.model.Venta;
 import GZ.ventaCalzado.repository.IClienteZapatoRepository;
 import GZ.ventaCalzado.service.IClienteZapatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,12 +17,13 @@ public class ClienteZapatoServiceImp implements IClienteZapatoService {
     private IClienteZapatoRepository clienteZapatoRepo;
 
     @Override
-    public ClienteZapato vender(ClienteZapato clienteZapato) {
+    @Transactional
+    public Venta vender(Venta clienteZapato) {
         return clienteZapatoRepo.save(clienteZapato);
     }
 
     @Override
-    public ClienteZapato actualizarVenta(ClienteZapato clienteZapato) {
+    public Venta actualizarVenta(Venta clienteZapato) {
         return clienteZapatoRepo.save(clienteZapato);
     }
 
@@ -32,14 +34,14 @@ public class ClienteZapatoServiceImp implements IClienteZapatoService {
     }
 
     @Override
-    public ClienteZapato BuscarVentaPorId(Integer idVenta) {
-        Optional<ClienteZapato>clienteZapatoOptional = clienteZapatoRepo.findById(idVenta);
+    public Venta BuscarVentaPorId(Integer idVenta) {
+        Optional<Venta>clienteZapatoOptional = clienteZapatoRepo.findById(idVenta);
         return clienteZapatoOptional.orElse(null);
     }
 
 
     @Override
-    public List<ClienteZapato> listarVentas() {
+    public List<Venta> listarVentas() {
         return clienteZapatoRepo.findAll();
     }
 }

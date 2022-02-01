@@ -1,7 +1,7 @@
 package GZ.ventaCalzado.repository;
 
-import GZ.ventaCalzado.model.ClienteZapato;
+import GZ.ventaCalzado.model.Venta;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IClienteZapatoRepository extends JpaRepository<ClienteZapato,Integer> {
+public interface IClienteZapatoRepository extends JpaRepository<Venta,Integer> {
 }
